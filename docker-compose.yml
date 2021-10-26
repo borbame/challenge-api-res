@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  nodejs:
+    container_name: nodeservice
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    volumes:
+      - my-datavolume:/var/lib/challenge
+volumes:
+  my-datavolume:
